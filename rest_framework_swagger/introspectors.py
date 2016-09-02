@@ -413,6 +413,7 @@ class BaseMethodIntrospector(object):
                 parameter = {
                     'paramType': 'query',
                     'name': name,
+                    'required': filter_.required,
                     'description': filter_.label,
                 }
                 normalize_data_format(data_type, None, parameter)
