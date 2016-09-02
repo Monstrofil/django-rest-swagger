@@ -1079,7 +1079,9 @@ class ViewSetMethodIntrospectorTests(TestCase):
                 label='Choices of possible first names',
                 choices=(('foo', 'Foo'),
                          ('bar', 'Bar')
-                         ))
+                         ),
+                required=True
+            )
 
         class MyViewSet(ModelViewSet):
             model = User
@@ -1093,13 +1095,15 @@ class ViewSetMethodIntrospectorTests(TestCase):
                          [{'paramType': 'query',
                            'name': 'username',
                            'description': 'Username of User',
-                           'type': 'string'
+                           'type': 'string',
+                           'required': False
                            },
                           {'paramType': 'query',
                            'name': 'choices',
                            'description': 'Choices of possible first names',
                            'enum': ['foo', 'bar'],
-                           'type': 'enum'
+                           'type': 'enum',
+                           'required': True
                            }
                           ])
 
